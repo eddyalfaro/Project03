@@ -1,0 +1,78 @@
+//This is a sample only, some lines are deleted intentionally, but the format is same.
+
+2017 is not a leap year, and Difference: 3 years, 5 months, and 10 days.
+2018 is not a leap year, and Difference: 1 years, 11 months, and 3 days.
+2012 is a leap year, and Difference: 8 years, 0 months, and 5 days.
+
+Initial Hashmap:
+2010-10-30:6
+2020-05-30:3
+2017-05-05:1
+2004-01-01:7
+
+Now the sorted Hashmap:
+1900-12-31:8
+2000-12-15:5
+2014-02-28:9
+2017-05-05:1
+2018-11-12:2
+2020-05-30:3
+
+
+ASCII average: 76
+Stations are: {COPA=76, FAIR=76, MARE=76, TALA=76, CARL=76, ERIC=76, KETC=76, EUFA=76, BUFF=76, MIAM=76, CHER=76, FREE=76, BIXB=76, MANG=76, HECT=76, HASK=76, MINC=76, ARNE=76, SKIA=76, FORA=76, ELRE=76, OKCE=76, HOLD=76, LAHO=76}
+
+Unsroted Hashmap:
+COPA 76
+FAIR 76
+MARE 76
+TALA 76
+CARL 76
+ARNE 76
+SKIA 76
+FORA 76
+ELRE 76
+OKCE 76
+HOLD 76
+LAHO 76
+
+The sorted map:
+ARNE
+BIXB
+BUFF
+CARL
+MARE
+MIAM
+MINC
+OKCE
+SKIA
+TALA
+
+The dates in HashMap are sorted using algorithm:
+
+Sorting of the dates in descending order:
+2050-12-31
+2047-02-28
+2042-10-30
+2038-02-02
+2010-11-01
+2010-10-30
+2004-01-01
+2003-04-25
+2000-12-15
+Sorting of the dates in ascending order:
+2000-12-15
+2003-04-25
+2004-01-01
+2010-10-30
+2010-11-01
+2011-03-15
+2012-10-10
+2026-05-06
+2038-02-02
+2042-10-30
+2047-02-28
+2050-12-31
+
+Execution time for the case 1: 5621099
+Execution time for the case 2: 1306400
