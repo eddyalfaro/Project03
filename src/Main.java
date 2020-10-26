@@ -53,18 +53,18 @@ public class Main {
 		 * Now print your Hashmap. It may look like below (This is the format, I didn't
 		 * print whole map): (i.e., Key:value) 2010-10-30:6 2019-05-30:3
 		 */
-		/*
-		 * dateTimeThree.dateHashMap();
-		 * 
-		 * System.out.println("\nNow the sorted Hashmap:");
-		 *//**
+		
+		  dateTimeThree.dateHashMap();
+		  
+		  System.out.println("\nNow the sorted Hashmap:");
+		 /**
 			 * Sort your Hashmap ascending order using keys.
 			 * 
 			 * Print the sorted Hashmap. It will be like: 1900-12-31:8 2000-12-15:5
 			 */
-		/*
-		 * dateTimeThree.dateHashMapSorted(); System.out.println("\n");
-		 *//**
+		
+		  dateTimeThree.dateHashMapSorted(); System.out.println("\n");
+		 /**
 			 * Section 2 For details first see the PDF Section 3 Extension
 			 */
 		/*
