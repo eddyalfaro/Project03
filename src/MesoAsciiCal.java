@@ -6,6 +6,10 @@ import java.util.stream.Stream;
 
 public class MesoAsciiCal extends MesoAsciiAbstract {
 	
+	public MesoAsciiCal(MesoStation mesoStation) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public static String[] readFile(String fileName) {
 		BufferedReader reader = null;
 		

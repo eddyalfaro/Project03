@@ -65,7 +65,7 @@ public class DateTimeThree{
 		return LocalDate.parse(text, INPUT_FORMAT);
 	}
 	
-	private static LocalDate[] getLocalDate(String[] array) {
+	public static LocalDate[] getLocalDate(String[] array) {
 		LocalDate[] arrayOfDates = new LocalDate[array.length];
 		
 		int i = 0;
@@ -101,7 +101,7 @@ public class DateTimeThree{
 		}else {
 			//System.out.println("" + dateTwo + " is after " + dateOne);
 		}
-		///System.out.println("starting from " + startingDate + " ending at " + endingDate);
+		//System.out.println("\n starting from " + startingDate + " ending at " + endingDate);
 		//System.out.println();
 		
 		int startingMonth = startingDate.getMonthValue();

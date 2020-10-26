@@ -67,14 +67,16 @@ public class Main {
 		 /**
 			 * Section 2 For details first see the PDF Section 3 Extension
 			 */
-		/*
-		 * String stId = "OKCE"; MesoAsciiCal asciiAverage = new MesoAsciiCal(new
-		 * MesoStation(stId)); int asciiAvg = asciiAverage.calAverage();
-		 * 
-		 * HashMap<String, Integer> asciiVal = new HashMap<String, Integer>();
-		 * asciiVal.put(stId, asciiAvg); System.out.print("ASCII average: ");
-		 * 
-		 *//**
+		
+		  String stId = "OKCE"; 
+		  MesoAsciiCal asciiAverage = new MesoAsciiCal(new MesoStation(stId)); 
+		  int asciiAvg = asciiAverage.calAverage();
+		  
+		  HashMap<String, Integer> asciiVal = new HashMap<String, Integer>();
+		  asciiVal.put(stId, asciiAvg); 
+		  System.out.print("ASCII average: ");
+		  
+		 /**
 			 * Calculate and print the ASCII average as per PDF. This value for NRMN as an
 			 * example. Output: 79
 			 */
