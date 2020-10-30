@@ -2,7 +2,7 @@
  /**
   * 
   * @author eddy_
-  * @version 3.1.6
+  * @version 3.1.7
   */
 public class MesoAsciiCal extends MesoAsciiAbstract {
 	
@@ -22,6 +22,10 @@ public class MesoAsciiCal extends MesoAsciiAbstract {
 	
 	public MesoAsciiCal(MesoStation mesoStation) {
 		station = mesoStation;
+	}
+	
+	public MesoStation getMesoStation() {
+		return station;
 	}
 
 	public static double averageStID(MesoStation station) {
@@ -96,10 +100,10 @@ public class MesoAsciiCal extends MesoAsciiAbstract {
 		double decimalPart = getFractionVal(finalAvg, DECIMAL_SPACES);
 		
 		if (decimalPart == 0.0) {
-			System.out.println("\naverage found to not have a fraction returned avg is... " + (int) finalAvg + '\n');
+			System.out.println("average found to not have a fraction returned avg is... " + (int) finalAvg + '\n');
 			return (int) finalAvg;
 		}
-		System.out.println("\naverage found to have a fraction returned avg is... " + (int) (finalAvg + 1) + '\n');
+		System.out.println("average found to have a fraction returned avg is... " + (int) (finalAvg + 1) + '\n');
 		return (int) finalAvg + 1;
 	}
    

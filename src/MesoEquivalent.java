@@ -25,7 +25,7 @@ public class MesoEquivalent extends MesoAsciiCal{
 	public MesoEquivalent(String stId) {
 		super(new MesoStation(stId));
 		System.out.println("__________________________");
-		System.out.println("ENTERING TO MESOEQUIVALENT");
+		System.out.println("ENTERING TO MESOEQUIVALENT.... STATION: " + stId + '\n');
 		key = this.calAverage();
 		//System.out.println(Arrays.toString(STATIONS));
 	}
@@ -53,7 +53,7 @@ public class MesoEquivalent extends MesoAsciiCal{
 	}
 
 	
-	private static String[] getStIds() {
+	public static String[] getStIds() {
 		String[] arr = readFile(FILE_NAME);
 		int index = 0;
 		
