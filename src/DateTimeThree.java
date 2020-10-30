@@ -101,9 +101,9 @@ public class DateTimeThree{
 		}else {
 			//System.out.println("" + dateTwo + " is after " + dateOne);
 		}
-		//System.out.println("\n starting from " + startingDate + " ending at " + endingDate);
-		//System.out.println();
-		
+//		System.out.println("\n starting from " + startingDate + " ending at " + endingDate);
+//		System.out.println();
+//		
 		int startingMonth = startingDate.getMonthValue();
 		int lengthOfMonth = startingDate.lengthOfMonth();
 		
@@ -181,8 +181,9 @@ public class DateTimeThree{
 	public void dateHashMapSorted() {
 		TreeMap<LocalDate, Integer> sorted = new TreeMap<>(mappedDates);
 		
+		
 		for (String print : toPrint(sorted)) {
-			System.out.println(print);
+			System.out.format("%s%n",print);
 		}
 	}		
 }

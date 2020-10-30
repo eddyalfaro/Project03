@@ -63,7 +63,8 @@ public class Main {
 			 * Print the sorted Hashmap. It will be like: 1900-12-31:8 2000-12-15:5
 			 */
 		
-		  dateTimeThree.dateHashMapSorted(); System.out.println("\n");
+		  dateTimeThree.dateHashMapSorted(); 
+		  System.out.println("\n");
 		 /**
 			 * Section 2 For details first see the PDF Section 3 Extension
 			 */
@@ -80,11 +81,11 @@ public class Main {
 			 * Calculate and print the ASCII average as per PDF. This value for NRMN as an
 			 * example. Output: 79
 			 */
-		/*
-		 * System.out.println(asciiVal.get(stId));
-		 * 
-		 * MesoEquivalent mesoEqual = new MesoEquivalent(stId);
-		 *//**
+		
+		  System.out.println(asciiVal.get(stId));
+		  
+		  MesoEquivalent mesoEqual = new MesoEquivalent(stId);
+		 /**
 			 * Print the content of the hashmap Output format: {NRMN=79, OKMU=79, STIL=79,
 			 * JAYX=79, NEWP=79, WOOD=79, STUA=79, WATO=79, MAYR=79, MRSH=79, WAUR=79}
 			 */
