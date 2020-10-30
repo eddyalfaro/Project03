@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * 
+ * @author eddy_
+ * @version 3.1.2
+ */
 public class DateTimeThree{
 	
 	private static final String FILE_NAME = "Dates.txt";
