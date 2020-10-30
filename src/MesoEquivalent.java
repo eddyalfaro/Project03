@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 /**
  * 
  * @author eddy_
- * @version 3.1.8
+ * @version 3.1.9
  */
 public class MesoEquivalent extends MesoAsciiCal{
 	
@@ -23,8 +23,8 @@ public class MesoEquivalent extends MesoAsciiCal{
 
 	public MesoEquivalent(String stId) {
 		super(new MesoStation(stId));
-		System.out.println("__________________________");
-		System.out.println("ENTERING TO MESOEQUIVALENT.... STATION: " + stId + '\n');
+		//System.out.println("__________________________");
+		//System.out.println("ENTERING TO MESOEQUIVALENT.... STATION: " + stId + '\n');
 		key = this.calAverage();
 	}
 	
@@ -71,7 +71,8 @@ public class MesoEquivalent extends MesoAsciiCal{
 		
 		for (String string : arr) {
 			arr[index] = string.trim();
-			arr[index] = arr[index++].split(" ", 2)[0];
+			arr[index] = arr[index].split(" ", 2)[0];
+			arr[index] = arr[index++].trim();
 		}
 		
 		return Arrays.copyOfRange(arr, STARTING_LINE - 1, arr.length);
@@ -79,7 +80,7 @@ public class MesoEquivalent extends MesoAsciiCal{
 	
 	public static MesoStation[] getStations(String[] arr) {
 		MesoStation[] array = new MesoStation[arr.length];
-		System.out.println(Arrays.toString(arr));
+		//System.out.println(Arrays.toString(arr));
 		int index = 0;
 		
 		for (String stId : arr) {
@@ -92,6 +93,11 @@ public class MesoEquivalent extends MesoAsciiCal{
 	public HashMap<String, Integer> calAsciiEqual() {
 		//System.out.println("Finding stations with similar ascii average");
 		
+		/*
+		 * for (MesoStation station : MESO_STATIONS) { System.out.format("%s %d%n",
+		 * station.getStID(), AVG_ASCII_VAL.get(station)); }
+		 */
+		 
 		HashMap<String, Integer> equalValueStId = new HashMap<String, Integer>();
 		int avg = 0;
 		

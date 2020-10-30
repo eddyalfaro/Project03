@@ -2,7 +2,7 @@
  /**
   * 
   * @author eddy_
-  * @version 3.1.7
+  * @version 3.1.8
   */
 public class MesoAsciiCal extends MesoAsciiAbstract {
 	
@@ -94,16 +94,16 @@ public class MesoAsciiCal extends MesoAsciiAbstract {
 		int firstAvg =  getFirstAvg()[AVG_INDEX];
 		
 		finalAvg = (firstAvg + DEFAULT_AVG)/2.0;
-		System.out.format("Averaging station %s = %d and %s = %d%n", station.getStID(), firstAvg, DEFAULT.getStID(), DEFAULT_AVG);
-		System.out.println("value found.... " + finalAvg);
+		//System.out.format("Averaging station %s = %d and %s = %d%n", station.getStID(), firstAvg, DEFAULT.getStID(), DEFAULT_AVG);
+		//System.out.println("value found.... " + finalAvg);
 		
 		double decimalPart = getFractionVal(finalAvg, DECIMAL_SPACES);
 		
 		if (decimalPart == 0.0) {
-			System.out.println("average found to not have a fraction returned avg is... " + (int) finalAvg + '\n');
+			//System.out.println("average found to not have a fraction returned avg is... " + (int) finalAvg + '\n');
 			return (int) finalAvg;
 		}
-		System.out.println("average found to have a fraction returned avg is... " + (int) (finalAvg + 1) + '\n');
+		//System.out.println("average found to have a fraction returned avg is... " + (int) (finalAvg + 1) + '\n');
 		return (int) finalAvg + 1;
 	}
 	
