@@ -9,27 +9,39 @@ import java.util.stream.Stream;
 /**
  * 
  * @author eddy_
- * @version 3.1.7
+ * @version 3.1.8
  */
 public class MesoEquivalent extends MesoAsciiCal{
 	
-	private static final String[] STATIONS = getStIds();
-	protected static final MesoStation[] MESO_STATIONS = getStations(STATIONS);	
+	protected static final MesoStation[] MESO_STATIONS = getStations(getStIds());
+	private static final HashMap<MesoStation, Integer> AVG_ASCII_VAL = mapAvgAsciValues();
 	
 	private static final String FILE_NAME = "Mesonet.txt";
 	private static final int STARTING_LINE = 4;
 	
 	private int key;
-	private HashMap<MesoStation, Integer> equalValueStId = new HashMap<MesoStation, Integer>();
 
 	public MesoEquivalent(String stId) {
 		super(new MesoStation(stId));
 		System.out.println("__________________________");
 		System.out.println("ENTERING TO MESOEQUIVALENT.... STATION: " + stId + '\n');
 		key = this.calAverage();
-		//System.out.println(Arrays.toString(STATIONS));
 	}
 	
+	private static HashMap<MesoStation, Integer> mapAvgAsciValues() {
+		HashMap<MesoStation, Integer> map = new HashMap<MesoStation, Integer>();
+		MesoAsciiCal asciiAvg = null;
+				
+		for (MesoStation station : MESO_STATIONS) {
+			asciiAvg = new MesoAsciiCal(station);
+			map.put(station, asciiAvg.calAverage());
+			//asciiAvg.calAverage();
+			//map.put(station, MesoAsciiCal.roundNumber(asciiAvg.getFinalAvg()));
+		}
+		
+		return map;
+	}
+
 	public static String[] readFile(String fileName) {
 		BufferedReader reader = null;
 		
@@ -78,7 +90,21 @@ public class MesoEquivalent extends MesoAsciiCal{
 	}
 	
 	public HashMap<String, Integer> calAsciiEqual() {
-		// TODO Auto-generated method stub
-		return null;
+		//System.out.println("Finding stations with similar ascii average");
+		
+		HashMap<String, Integer> equalValueStId = new HashMap<String, Integer>();
+		int avg = 0;
+		
+		for(MesoStation station : MESO_STATIONS) {
+			avg = AVG_ASCII_VAL.get(station);
+			//System.out.println("\nSTATION " + station.getStID() + " with an average of... " + avg);
+			if (avg == key) {
+				//System.out.println("Station found to have the same average adding to the map...");
+				equalValueStId.put(station.getStID(), avg);
+			}
+		}
+		
+		//System.out.println();
+		return equalValueStId;
 	}	
 }

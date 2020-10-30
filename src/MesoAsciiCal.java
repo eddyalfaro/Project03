@@ -106,5 +106,9 @@ public class MesoAsciiCal extends MesoAsciiAbstract {
 		System.out.println("average found to have a fraction returned avg is... " + (int) (finalAvg + 1) + '\n');
 		return (int) finalAvg + 1;
 	}
+	
+	public double getFinalAvg() {
+		return finalAvg;
+	}
    
 }
