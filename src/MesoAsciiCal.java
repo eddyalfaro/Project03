@@ -1,12 +1,8 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.stream.Stream;
+
  /**
   * 
   * @author eddy_
-  * @version 3.1.3
+  * @version 3.1.6
   */
 public class MesoAsciiCal extends MesoAsciiAbstract {
 	
@@ -17,7 +13,7 @@ public class MesoAsciiCal extends MesoAsciiAbstract {
 	public final static int FLOOR_INDEX = 1;
 	public final static int AVG_INDEX = 2;
 	
-	private final static int STARTING_LINE = 3;
+	//private final static int STARTING_LINE = 3;
 	private final static double ROUNDING_LIMIT = 0.25;
 	private final static int DECIMAL_SPACES = 2;
 	
@@ -26,28 +22,6 @@ public class MesoAsciiCal extends MesoAsciiAbstract {
 	
 	public MesoAsciiCal(MesoStation mesoStation) {
 		station = mesoStation;
-	}
-
-	public static String[] readFile(String fileName) {
-		BufferedReader reader = null;
-		
-		try {
-			reader = new BufferedReader(new FileReader(fileName));//opens file
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		Stream<String> lineStream = reader.lines(); //pushes the lines of the files into a stream of strings
-		String[] linesReadInFile = lineStream.toArray(String[]::new); //turns the stream of strings into an array
-		
-		try {
-			reader.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		lineStream.close();
-		
-		return linesReadInFile;
 	}
 
 	public static double averageStID(MesoStation station) {

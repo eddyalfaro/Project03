@@ -7,12 +7,12 @@ import java.util.TreeMap;
 /**
  * 
  * @author eddy_
- * @version 3.1.2
+ * @version 3.1.6
  */
 public class DateTimeThree{
 	
 	private static final String FILE_NAME = "Dates.txt";
-	private static final String[] STORED_DATES = MesoAsciiCal.readFile(FILE_NAME);
+	private static final String[] STORED_DATES = MesoEquivalent.readFile(FILE_NAME);
 	private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("MM.dd.yyyy");
 	
 	private static final String IS_LEAP = "is a leap year";
