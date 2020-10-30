@@ -89,15 +89,17 @@ public class Main {
 			 * Print the content of the hashmap Output format: {NRMN=79, OKMU=79, STIL=79,
 			 * JAYX=79, NEWP=79, WOOD=79, STUA=79, WATO=79, MAYR=79, MRSH=79, WAUR=79}
 			 */
-		/*
-		 * System.out.println("Stations are: "+ mesoEqual.calAsciiEqual());
-		 * 
-		 * System.out.println("\nUnsroted Hashmap:");
-		 * asciiVal=mesoEqual.calAsciiEqual(); for (String stIds : asciiVal.keySet()) {
-		 * //Printing the unsorted map System.out.println(stIds + " " +
-		 * asciiVal.get(stIds)); }
-		 * 
-		 *//**
+		
+		  System.out.println("Stations are: "+ mesoEqual.calAsciiEqual());
+		  
+		  System.out.println("\nUnsroted Hashmap:");
+		  asciiVal=mesoEqual.calAsciiEqual(); 
+		  for (String stIds : asciiVal.keySet()) {
+		  //Printing the unsorted map 
+			  System.out.println(stIds + " " +  asciiVal.get(stIds)); 
+			  }
+		  
+		 /**
 			 * Sort your hashmap and print here (We are sorting the data so that we can test
 			 * your output on Zybook, because unsorted data is difficult to test by
 			 * autograder)
