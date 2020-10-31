@@ -1,17 +1,25 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
-public class MesoLexicographical extends MesoSortedAbstract
-{
+/**
+ * 
+ * @author eddy_
+ * @version 3.1.1
+ */
+public class MesoLexicographical extends MesoSortedAbstract{
+	
+	//private HashMap<String, Integer> asciiVal = new HashMap<String, Integer>();
 
-	public MesoLexicographical(HashMap<String, Integer> asciiVal) {
-		// TODO Auto-generated constructor stub
+	public MesoLexicographical(HashMap<String, Integer> asciiVal) {		
+		for (String station : this.sortedMap(asciiVal).keySet()) {
+			System.out.println(station);
+		}
 	}
 
 	@Override
-	Map<String, Integer> sortedMap(HashMap<String, Integer> unsorted) {
-		// TODO Auto-generated method stub
-		return null;
+	public Map<String, Integer> sortedMap(HashMap<String, Integer> unsorted) {
+		return new TreeMap<String, Integer>(unsorted);
 	}
 
 }

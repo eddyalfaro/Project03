@@ -105,7 +105,8 @@ public class Main {
 			 * autograder)
 			 */
 		
-		  System.out.print("##"); System.out.println("\nThe sorted map:"); 
+		  //System.out.print("##"); 
+		  System.out.println("\nThe sorted map:"); 
 		  new MesoLexicographical(asciiVal);
 		  
 		 /**
@@ -126,28 +127,27 @@ public class Main {
 			 */
 		
 		  System.out.println("\nThe dates in HashMap are sorted using algorithm:\n");
-		  DateSortingUsingAlgorithm dateSortingUsingAlgorithm = new
-		  DateSortingUsingAlgorithm();
+		  DateSortingUsingAlgorithm dateSortingUsingAlgorithm = new DateSortingUsingAlgorithm();
 		  
 		 /**
 			 * Sort the hashmap in descending order Output format will be like: 2026-05-06
 			 * 2021-03-31 2020-12-31
 			 */
 		
-		  System.out.println("Sorting of the dates in descending order:"); long
-		  startTime = System.nanoTime();
-		  dateSortingUsingAlgorithm.dateHashMapSortedDescending(); long estimatedTime =
-		  System.nanoTime() - startTime;
+		  System.out.println("Sorting of the dates in descending order:"); 
+		  long startTime = System.nanoTime();
+		  dateSortingUsingAlgorithm.dateHashMapSortedDescending();
+		  long estimatedTime = System.nanoTime() - startTime;
 		  
 		 /**
 			 * Sort the hashmap in ascending order. Output will be like: 2011-03-15
 			 * 2012-10-10 2014-02-28
 			 */
 		
-		  System.out.println("Sorting of the dates in ascending order:"); long
-		  startTime2 = System.nanoTime();
-		  dateSortingUsingAlgorithm.dateHashMapSorted(); long estimatedTime2 =
-		  System.nanoTime() - startTime2;
+		  System.out.println("Sorting of the dates in ascending order:"); 
+		  long  startTime2 = System.nanoTime();
+		  dateSortingUsingAlgorithm.dateHashMapSorted(); 
+		  long estimatedTime2 =  System.nanoTime() - startTime2;
 		  
 		  System.out.println("\nExecution time for the case 1: " + estimatedTime);
 		  System.out.println("Execution time for the case 2: " + estimatedTime2); 
