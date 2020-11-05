@@ -3,22 +3,25 @@ import java.util.HashMap;
 
 /**
  * 
- * @author eddy_
+ * @author EddyAlfaro
  * @version 3.0.2
  */
 public class DateSortingUsingAlgorithm {
 	
-	private static final String FILE_NAME = "SortingDates.txt";
-	private static final String[] DATES = parseDates();
-	private static final LocalDate[] DATE_ARRAY = getLocalDates();
+	private static final String FILE_NAME = "SortingDates.txt";//file to be read
+	private static final String[] DATES = parseDates();//parsed string of dates in the format yyyy-mm-dd
+	private static final LocalDate[] DATE_ARRAY = getLocalDates();//array of LocalDate objects with the dates read on the file
 		
-	private static final String WHITE_SPACE_1 = " ";
-	private static final String WHITE_SPACE_2 = "\t";
-	private static final String WHITE_SPACE_3 = "\n";
+	private static final String WHITE_SPACE_1 = " ";//white space to be removed from the read date in file
+	private static final String WHITE_SPACE_2 = "\t";//white space to be removed from the read date in file
+	private static final String WHITE_SPACE_3 = "\n";//white space to be removed from the read date in file
 	
-	private HashMap<LocalDate, Integer> mapOfDates = new HashMap<LocalDate, Integer>();
-	private LocalDate[] toSort;
+	private HashMap<LocalDate, Integer> mapOfDates = new HashMap<LocalDate, Integer>();//HashMap with ketys of LocalDate and values of integers
+	private LocalDate[] toSort;// array of LocaDate that will be sorted
 	
+	/**
+	 * the constructor maps the LocalDate keys present in the array DATE_ARRAY with Integer values correnponding to their lines within the file
+	 */
 	public DateSortingUsingAlgorithm() {
 		int value = 1;
 		
@@ -28,6 +31,10 @@ public class DateSortingUsingAlgorithm {
 		
 	}
 	
+	/**
+	 * read the file of dates and removes the unnecesary white space present in each line
+	 * @return returns a String array that contains a set of dates in the format "yyyy-MM-dd"
+	 */
 	private static String[] parseDates() {
 		String[] lines = MesoEquivalent.readFile(FILE_NAME);
 		
@@ -42,6 +49,10 @@ public class DateSortingUsingAlgorithm {
 		return lines;
 	}
 	
+	/**
+	 * Generates a LocalDate array with the information of the dates read from the file
+	 * @return return a array of dates with the same order as it was read from the file
+	 */
 	private static LocalDate[] getLocalDates() {
 		LocalDate[] array = new LocalDate[DATES.length];
 		//System.out.println(array.length);
@@ -55,7 +66,9 @@ public class DateSortingUsingAlgorithm {
 		return array;
 	}
 	
-
+	/**
+	 * this method obtains a sert of keys from the global HashMap and organizes it descending. After organizing the method prints every member of the array
+	 */
 	public void dateHashMapSortedDescending() {
 		toSort = mapOfDates.keySet().toArray(new LocalDate[mapOfDates.size()]);
 		
@@ -83,6 +96,9 @@ public class DateSortingUsingAlgorithm {
 		//System.out.println();
 	}
 
+	/**
+	 * this method obtains a sert of keys from the global HashMap and organizes it ascending. After organizing the method prints every member of the array
+	 */
 	public void dateHashMapSorted() {
 		toSort = mapOfDates.keySet().toArray(new LocalDate[mapOfDates.size()]);
 		

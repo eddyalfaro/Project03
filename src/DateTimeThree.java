@@ -6,39 +6,42 @@ import java.util.TreeMap;
 
 /**
  * 
- * @author eddy_
+ * @author EddyAlfaro
  * @version 3.1.6
  */
 public class DateTimeThree{
+
+	private static final String FILE_NAME = "Dates.txt";// Name of the file to read
+	private static final String[] STORED_DATES = MesoEquivalent.readFile(FILE_NAME); //dates read from the file
+	private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("MM.dd.yyyy"); //date input format parser
 	
-	private static final String FILE_NAME = "Dates.txt";
-	private static final String[] STORED_DATES = MesoEquivalent.readFile(FILE_NAME);
-	private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("MM.dd.yyyy");
+	private static final String IS_LEAP = "is a leap year"; //String for leap year years
+	private static final String IS_NOT_LEAP = "is not a leap year";//String for non-leap year years
 	
-	private static final String IS_LEAP = "is a leap year";
-	private static final String IS_NOT_LEAP = "is not a leap year";
+	private static final int YEAR_INDEX = 0;//index for the years difference within array returned by compareYear()
+	private static final int MONTH_INDEX = 1;//index for the months difference within array returned by compareYear()
+	private static final int DAY_INDEX = 2;//index for the days difference within array returned by compareYear()
 	
-	private static final int YEAR_INDEX = 0;
-	private static final int MONTH_INDEX = 1;
-	private static final int DAY_INDEX = 2;
+	private static final int FIRST_MAP_VALUE = 1;//starting value assigned to the generated hashmap of read dates
+	private static final int MONTHS_IN_YEAR = 12;//number of months within a year
 	
-	private static final int FIRST_MAP_VALUE = 1;
-	private static final int MONTHS_IN_YEAR = 12;
+	private static final String REMOVABLE_ONE = "{";//token to remove from the print in string from hashmap
+	private static final String REMOVABLE_TWO = "}";//token to remove from the print in string from hashmap
+	private static final String TO_REPLACE = "=";//token to replace from the print in string from hashmap
+	private static final String REPLACE_WITH = ":";//token to insert in the print in string from hashmap
+	private static final String SPLIT_AROUND = ", ";//token around which the print in string from hashmap will be splitted
 	
-	private static final String REMOVABLE_ONE = "{";
-	private static final String REMOVABLE_TWO = "}";
-	private static final String TO_REPLACE = "=";
-	private static final String REPLACE_WITH = ":";
-	private static final String SPLIT_AROUND = ", ";
+	private static LocalDate TODAY_DATE;//class variable that contains information of date and time once contructor is called
 	
-	private static LocalDate TODAY_DATE;
+	private LocalDate[] givenDates;//Local date array that was parsed using INPUT_FORMAT
+	private String[] leapYear;//contains strings that are correspodant to either if a year within givenDates is leap or not
+	private int[][] difference;//array that contains arrays that tell hoe much time of difference there is from the givenDates till today
 	
-	private LocalDate[] givenDates;
-	private String[] leapYear;
-	private int[][] difference;
+	private HashMap<LocalDate, Integer> mappedDates;//mapped dates with values correspondant to the line at which they were read from file
 	
-	private HashMap<LocalDate, Integer> mappedDates;
-		
+	/**
+	 * Default constructor for DateTimeThree. initializes the variables TODAY_DATE, givenDates, mappedDates, leapYear and difference
+	 */
 	public DateTimeThree() {
 		TODAY_DATE = LocalDate.now();
 		
@@ -54,6 +57,11 @@ public class DateTimeThree{
 		difference = new int[givenDates.length][];		
 	}
 	
+	/**
+	 * Generates a HashMap with LocalDate keys and Integer values. the keys are stracted from the input and the values are equal to de index of each date + 1
+	 * @param dates LocalDate array that is goin to be mapped
+	 * @return ashMap with LocalDate keys obtained from the LocalDate array given as input and Integer values
+	 */
 	private HashMap<LocalDate, Integer> makeMap(LocalDate[] dates) {
 		HashMap<LocalDate, Integer> mapping = new HashMap<LocalDate, Integer>(dates.length);
 		
@@ -66,10 +74,20 @@ public class DateTimeThree{
 		return mapping;
 	}
 	
+	/**
+	 * parses a LocalDate object in the formatt "MM.dd.yyyy"
+	 * @param text date to be parsed into a LocalDate object in the format "MM.dd.yyyy"
+	 * @return returns a LocalDate object with month, day, year instances of teh given text
+	 */
 	public static LocalDate getLocalDate(String text) {
 		return LocalDate.parse(text, INPUT_FORMAT);
 	}
 	
+	/**
+	 * parses a LocalDate array from a String array with text in the formatt "MM.dd.yyyy"
+	 * @param array array of dates to be parsed into a LocalDate array in the format "MM.dd.yyyy"
+	 * @return returns a LocalDate array with month, day, year instances of teh given text
+	 */
 	public static LocalDate[] getLocalDate(String[] array) {
 		LocalDate[] arrayOfDates = new LocalDate[array.length];
 		
@@ -82,6 +100,9 @@ public class DateTimeThree{
 		return arrayOfDates;
 	}
 	
+	/**
+	 * 
+	 */
 	public void compareYear() {
 		int index = 0;
 		
@@ -93,6 +114,12 @@ public class DateTimeThree{
 		}
 	}
 	
+	/**
+	 * calculates the amount of time in {years, months, days} that there is from the later date to the earliest date
+	 * @param dateOne LocalDate object to find the ammount of time, it can be the lowest or the highest.
+	 * @param dateTwo LocalDate object to find the ammount of time, it can be the lowest or the highest.
+	 * @return returns an array of lenght 3 in the following form [Years, Months, Days] the values within the array tell the amount of time that there is between the given parameters
+	 */
 	public static int[] compareYear(LocalDate dateOne, LocalDate dateTwo) {
 		int[] timeDifference = new int[DAY_INDEX + 1];
 		
@@ -144,6 +171,11 @@ public class DateTimeThree{
 		return timeDifference;
 	}
 	
+	/**
+	 * populates a String array with information about if the date passed as LocalDate has a year that is leap or not
+	 * @param dates LocalDate array to verify if the year of each of its elements is leap or not
+	 * @return returns a string array that shows strings at position on index i telling if the LocalDate in index i of the given parameter is leap or not
+	 */
 	private String[] populateLeapYear(LocalDate[] dates) {
 		String[] array = new String[dates.length];
 		
@@ -160,13 +192,20 @@ public class DateTimeThree{
 		return array;
 	}
 
-	
+	/**
+	 * prints the mapped dates
+	 */
 	public void dateHashMap() {
 		for (String print : toPrint(mappedDates)) {
 			System.out.println(print);
 		}
 	}
 	
+	/**
+	 * modifies the given string obtained when the method toString() is called on an map type object. The objective of this emthod is to obtained a printable string that is presented in a vertical form
+	 * @param map Map object to be printed
+	 * @return returns a String array that is ready to be printed with each string in the format Key:Value
+	 */
 	public String[] toPrint(Map<LocalDate, Integer> map) {
 		String printedMap = map.toString();
 		//System.out.println(printedMap);
@@ -183,6 +222,9 @@ public class DateTimeThree{
 		return hashMap;
 	}
 
+	/**
+	 * sorts and print the mapped dates
+	 */
 	public void dateHashMapSorted() {
 		TreeMap<LocalDate, Integer> sorted = new TreeMap<>(mappedDates);
 		
